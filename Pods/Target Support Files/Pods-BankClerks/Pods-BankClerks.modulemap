@@ -1,0 +1,6 @@
+framework module Pods_BankClerks {
+  umbrella header "Pods-BankClerks-umbrella.h"
+
+  export *
+  module * { export * }
+}
