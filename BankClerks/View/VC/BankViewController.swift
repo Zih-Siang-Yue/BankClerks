@@ -40,6 +40,7 @@ class BankViewController: UIViewController {
         self.binding()
     }
     
+    //MARK: Setting
     private func basicSetting() {
         self.setupTableView()
         self.setupNumberTakingBtn()
@@ -67,6 +68,7 @@ class BankViewController: UIViewController {
             .disposed(by: self.disposeBag)
     }
 
+    //MARK: Binding
     private func binding() {
         let clerkCountTFOb = self.clerkCountTextField.rx.text.orEmpty.asObservable()
         let numberTakingBtnTap = self.numberTakingBtn.rx.tap

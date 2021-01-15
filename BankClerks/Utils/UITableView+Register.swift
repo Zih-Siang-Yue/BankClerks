@@ -8,7 +8,6 @@
 import UIKit
 
 public extension UITableView {
-    
     func registerNib<T: UITableViewCell>(cellType: T.Type) {
         let nib = UINib(nibName: cellType.typeName, bundle: nil)
         register(nib, forCellReuseIdentifier: cellType.typeName)
@@ -29,5 +28,4 @@ public extension UITableView {
     func dequeueReusableCell<T: UITableViewCell>(with type: T.Type, for indexPath: IndexPath) -> T {
         return self.dequeueReusableCell(withIdentifier: type.typeName, for: indexPath) as! T
     }
-    
 }

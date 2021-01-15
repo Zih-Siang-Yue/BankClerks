@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0EEC7484C84822504ABC8F8A /* Pods_BankClerksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B097CC233A34CCD376E0308 /* Pods_BankClerksTests.framework */; };
 		8638A8ABCDC4E850658623A9 /* Pods_BankClerks_BankClerksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77F2D7E612D595DD087AD06 /* Pods_BankClerks_BankClerksUITests.framework */; };
+		F00CD28F25AE947E00506ADC /* TaskAcceptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00CD28E25AE947E00506ADC /* TaskAcceptable.swift */; };
+		F00CD2A925B1397100506ADC /* ThreadSafetyCollectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00CD2A825B1397100506ADC /* ThreadSafetyCollectable.swift */; };
+		F00CD2AE25B139C500506ADC /* ThreadSafetyArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00CD2AD25B139C500506ADC /* ThreadSafetyArray.swift */; };
 		F0500AAD25A17F4200C1B6C8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0500AAC25A17F4200C1B6C8 /* Task.swift */; };
 		F094543625A55690004042AC /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F094543525A55690004042AC /* ViewModelType.swift */; };
 		F094544225A55807004042AC /* NameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F094544125A55807004042AC /* NameData.swift */; };
@@ -57,6 +60,9 @@
 		BF73D5A2B434135BB468667A /* Pods-BankClerksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankClerksTests.debug.xcconfig"; path = "Target Support Files/Pods-BankClerksTests/Pods-BankClerksTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C13F069496A929CDF2AEB4C6 /* Pods-BankClerks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankClerks.debug.xcconfig"; path = "Target Support Files/Pods-BankClerks/Pods-BankClerks.debug.xcconfig"; sourceTree = "<group>"; };
 		CE9FB711BF8058A8D2B4E56B /* Pods-BankClerks-BankClerksUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankClerks-BankClerksUITests.release.xcconfig"; path = "Target Support Files/Pods-BankClerks-BankClerksUITests/Pods-BankClerks-BankClerksUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F00CD28E25AE947E00506ADC /* TaskAcceptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAcceptable.swift; sourceTree = "<group>"; };
+		F00CD2A825B1397100506ADC /* ThreadSafetyCollectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafetyCollectable.swift; sourceTree = "<group>"; };
+		F00CD2AD25B139C500506ADC /* ThreadSafetyArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafetyArray.swift; sourceTree = "<group>"; };
 		F0500AAC25A17F4200C1B6C8 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F094543525A55690004042AC /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		F094544125A55807004042AC /* NameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameData.swift; sourceTree = "<group>"; };
@@ -136,6 +142,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F00CD2B225B194F600506ADC /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				F0B9748A25A0482700D41F42 /* Dispatcher.swift */,
+				F00CD2AD25B139C500506ADC /* ThreadSafetyArray.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		F0500AA825A1793600C1B6C8 /* ClerkCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				F094543525A55690004042AC /* ViewModelType.swift */,
+				F00CD28E25AE947E00506ADC /* TaskAcceptable.swift */,
+				F00CD2A825B1397100506ADC /* ThreadSafetyCollectable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -211,7 +228,7 @@
 				F0B974A725A0CC5600D41F42 /* Model */,
 				F0B9749425A058A600D41F42 /* Utils */,
 				F094543A25A55698004042AC /* Protocol */,
-				F0B9748A25A0482700D41F42 /* Dispatcher.swift */,
+				F00CD2B225B194F600506ADC /* Tools */,
 				F0B9746325A0467500D41F42 /* Assets.xcassets */,
 				F0B9746525A0467500D41F42 /* LaunchScreen.storyboard */,
 				F0B9746825A0467500D41F42 /* Info.plist */,
@@ -500,8 +517,11 @@
 				F0B9749325A058A100D41F42 /* UITableView+Register.swift in Sources */,
 				F0B9745F25A0466B00D41F42 /* BankViewController.swift in Sources */,
 				F0B9749225A058A100D41F42 /* NSObject+NameDescribable.swift in Sources */,
+				F00CD2A925B1397100506ADC /* ThreadSafetyCollectable.swift in Sources */,
 				F094544225A55807004042AC /* NameData.swift in Sources */,
+				F00CD2AE25B139C500506ADC /* ThreadSafetyArray.swift in Sources */,
 				F0B9745D25A0466B00D41F42 /* AppDelegate.swift in Sources */,
+				F00CD28F25AE947E00506ADC /* TaskAcceptable.swift in Sources */,
 				F0500AAD25A17F4200C1B6C8 /* Task.swift in Sources */,
 				F0B9748D25A048A200D41F42 /* BankViewModel.swift in Sources */,
 				F0B9749A25A05A0900D41F42 /* ClerkTableViewCellVM.swift in Sources */,

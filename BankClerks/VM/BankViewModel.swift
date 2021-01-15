@@ -15,17 +15,19 @@ class BankViewModel: ViewModelType {
     typealias Input = BankInput
     typealias Output = BankOutput
     
+    //MARK: Properties
     private let dispatcher: Dispatcher
     private let nameList: [String]
-    private var clerks: [Clerk] = []
     
     private let numberRelay: BehaviorRelay<Int>
     private let reloadTableViewRelay: PublishRelay<Void>
     private let disposeBag = DisposeBag()
     private var dataBag = DisposeBag()
     
+    private var clerks: [Clerk] = []
     var cellVMs: [ClerkTableViewCellVM] = []
 
+    //MARK: Input & Output structure
     struct BankInput {
         var clerkCountStr: Observable<String>
         var numberTakingBtnTap: ControlEvent<Void>
@@ -47,27 +49,26 @@ class BankViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
-        let waitingStrDriver: Driver<String> = self.dispatcher.tasksChanged
+        let waitingStrDriver: Driver<String> = self.dispatcher.tasks.changedObservable
             .map { (count) -> String in
                 return "waitings: \(count)"
             }
             .asDriver(onErrorJustReturn: "waitings: - ")
         
         let btnTitleDriver: Driver<String> = self.numberRelay
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribeOn(MainScheduler.asyncInstance)
             .map { (count) -> String in
                 "Next \(count)"
             }
             .asDriver(onErrorJustReturn: "號碼機故障")
         
         let validCount: Observable<Int> = input.clerkCountStr
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribeOn(MainScheduler.asyncInstance)
             .map { (str) -> Int in
                 let count = Int(str) ?? 0
                 return count > 30 ? 30 : count
             }
             .distinctUntilChanged()
-
         
         let btnValidDriver: Driver<Bool> = validCount
             .map { (c) -> Bool in
@@ -91,7 +92,7 @@ class BankViewModel: ViewModelType {
         
         
         let reloadDriver: Driver<Void> = self.reloadTableViewRelay
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribeOn(MainScheduler.asyncInstance)
             .asDriver(onErrorJustReturn: ())
         
         return Output(waitingStr: waitingStrDriver, btnTitle: btnTitleDriver, btnValid: btnValidDriver, reloadAction: reloadDriver)
@@ -103,7 +104,7 @@ class BankViewModel: ViewModelType {
 extension BankViewModel {
     private func numberTakingBtnAction() {
         let task = self.createTask(number: self.numberRelay.value)
-        self.dispatcher.push(task)
+        self.dispatcher.tasks.push(element: task)
         self.numberRelay.accept(self.numberRelay.value + 1)
     }
     
@@ -116,46 +117,29 @@ extension BankViewModel {
 extension BankViewModel {
     private func reset(count: Int) {
         self.dataBag = DisposeBag()
-        self.dispatcher.removeAllTask()
+        
         self.createClerks(count: count)
         self.createCellVMs(clerks: self.clerks)
+        self.dispatcher.setupTakers(self.cellVMs)
         self.numberRelay.accept(1)
     }
     
     private func createClerks(count: Int) {
         self.clerks.removeAll()
         
-        for _ in 0 ..< count {
+        for i in 0 ..< count {
             let n = Int.random(in: 0 ..< self.nameList.count)
-            let performance = Double.random(in: 3...4.5)
-            let clerk = Clerk(name: self.nameList[n], performance: performance)
+            let performance = Double.random(in: 0.5...1.5)
+            let clerk = Clerk(name: self.nameList[n], performance: performance, serialNo: i)
             self.clerks.append(clerk)
         }
     }
     
     private func createCellVMs(clerks: [Clerk]) {
         self.cellVMs.removeAll()
-        
-        let queue = DispatchQueue(label: "acceptTaskQueue")
-        let taskScheduler = SerialDispatchQueueScheduler(queue: queue, internalSerialQueueName: "acceptTaskQueue")
-        
+                
         for clerk in clerks {
             let cellVM = ClerkTableViewCellVM(with: clerk)
-            
-            Observable
-                .combineLatest(cellVM.stateRelay, self.dispatcher.tasksChanged) { state, taskCount -> Bool in
-                    return state == .idle && taskCount > 0
-                }
-                .filter { return $0 }
-                .throttle(RxTimeInterval.milliseconds(100), scheduler: taskScheduler)
-                .observeOn(taskScheduler)
-                .subscribe(onNext: { [unowned self] (acceptable) in
-                    if let firstTask = self.dispatcher.pop() {
-                        cellVM.accept(task: firstTask)
-                    }
-                })
-                .disposed(by: self.dataBag)
-            
             self.cellVMs.append(cellVM)
         }
     }

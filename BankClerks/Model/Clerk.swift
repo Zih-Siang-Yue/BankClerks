@@ -21,7 +21,8 @@ enum ClerkState: Equatable {
 }
 
 struct Clerk {
-    var name: String
-    var performance: Double
+    let name: String
+    let performance: Double
+    let serialNo: Int
 }
 
