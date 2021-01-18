@@ -41,8 +41,9 @@ class Dispatcher {
             .filter({ [unowned self] (_) -> Bool in
                 return self.takers.count > 0 && self.tasks.count > 0
             })
-            .subscribe(onNext: { [unowned self] (_) in
-                guard let firstTaker = self.takers.removeFirst(),
+            .subscribe(onNext: { [weak self] (_) in
+                guard let self = self,
+                      let firstTaker = self.takers.removeFirst(),
                       let firstTask = self.tasks.removeFirst() else { return }
                 firstTaker.accept(task: firstTask)
             })
