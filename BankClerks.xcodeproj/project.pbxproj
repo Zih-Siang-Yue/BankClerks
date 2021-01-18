@@ -12,6 +12,7 @@
 		F00CD28F25AE947E00506ADC /* TaskAcceptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00CD28E25AE947E00506ADC /* TaskAcceptable.swift */; };
 		F00CD2A925B1397100506ADC /* ThreadSafetyCollectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00CD2A825B1397100506ADC /* ThreadSafetyCollectable.swift */; };
 		F00CD2AE25B139C500506ADC /* ThreadSafetyArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00CD2AD25B139C500506ADC /* ThreadSafetyArray.swift */; };
+		F00CD2B725B55BFC00506ADC /* Taskable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00CD2B625B55BFC00506ADC /* Taskable.swift */; };
 		F0500AAD25A17F4200C1B6C8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0500AAC25A17F4200C1B6C8 /* Task.swift */; };
 		F094543625A55690004042AC /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F094543525A55690004042AC /* ViewModelType.swift */; };
 		F094544225A55807004042AC /* NameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F094544125A55807004042AC /* NameData.swift */; };
@@ -63,6 +64,7 @@
 		F00CD28E25AE947E00506ADC /* TaskAcceptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAcceptable.swift; sourceTree = "<group>"; };
 		F00CD2A825B1397100506ADC /* ThreadSafetyCollectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafetyCollectable.swift; sourceTree = "<group>"; };
 		F00CD2AD25B139C500506ADC /* ThreadSafetyArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafetyArray.swift; sourceTree = "<group>"; };
+		F00CD2B625B55BFC00506ADC /* Taskable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskable.swift; sourceTree = "<group>"; };
 		F0500AAC25A17F4200C1B6C8 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F094543525A55690004042AC /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		F094544125A55807004042AC /* NameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameData.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				F094543525A55690004042AC /* ViewModelType.swift */,
 				F00CD28E25AE947E00506ADC /* TaskAcceptable.swift */,
 				F00CD2A825B1397100506ADC /* ThreadSafetyCollectable.swift */,
+				F00CD2B625B55BFC00506ADC /* Taskable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				F0B9748B25A0482700D41F42 /* Dispatcher.swift in Sources */,
 				F0B974A525A0A8F100D41F42 /* ClerkTableViewCell.swift in Sources */,
 				F0B9749C25A05A2E00D41F42 /* Clerk.swift in Sources */,
+				F00CD2B725B55BFC00506ADC /* Taskable.swift in Sources */,
 				F094545325A5D94E004042AC /* UITableViewCell+Reactive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

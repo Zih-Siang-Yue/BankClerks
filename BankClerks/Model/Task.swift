@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Task {
+struct Task: Taskable {
     var number: Int
 }

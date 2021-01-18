@@ -65,7 +65,7 @@ extension ClerkTableViewCellVM: TaskAcceptable {
         return self.clerk.serialNo
     }
     
-    func accept(task: Task) {
+    func accept(task: Taskable) {
         self.stateRelay.accept(.processing(number: task.number))
         self.acceptTaskQueue.asyncAfter(deadline: .now() + self.clerk.performance) { [weak self] in
             guard let self = self else { return }

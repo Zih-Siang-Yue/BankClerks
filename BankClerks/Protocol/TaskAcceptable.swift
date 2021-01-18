@@ -13,6 +13,6 @@ protocol TaskAcceptable {
     var serialNo: Int { get }
     var stateOb: Observable<ClerkState> { get }
 
-    func accept(task: Task)
+    func accept(task: Taskable)
 }
 

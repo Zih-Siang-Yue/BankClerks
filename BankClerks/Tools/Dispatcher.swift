@@ -11,8 +11,8 @@ import RxSwift
 import RxCocoa
 
 class Dispatcher {
-    var tasks: ThreadSafetyArray<Task>
-    var takers: ThreadSafetyArray<ClerkTableViewCellVM>
+    var tasks: ThreadSafetyArray<Taskable>
+    var takers: ThreadSafetyArray<TaskAcceptable>
     private var disposeBag: DisposeBag = DisposeBag()
     
     //MARK: Init
@@ -21,7 +21,7 @@ class Dispatcher {
         self.takers = ThreadSafetyArray()
     }
     
-    public func setupTakers(_ takers: [ClerkTableViewCellVM]) {
+    public func setupTakers(_ takers: [TaskAcceptable]) {
         self.disposeBag = DisposeBag()
         self.tasks.removeAll()
         self.takers.removeAll()
@@ -49,7 +49,7 @@ class Dispatcher {
             .disposed(by: self.disposeBag)
     }
     
-    private func subscribeTakersState(_ takers: [ClerkTableViewCellVM]) {
+    private func subscribeTakersState(_ takers: [TaskAcceptable]) {
         takers.forEach { (taker) in
             taker.stateOb
                 .observeOn(self.takers.scheduler)
