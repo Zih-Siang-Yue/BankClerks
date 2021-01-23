@@ -14,9 +14,10 @@ class BankViewModel: ViewModelType {
     
     typealias Input = BankInput
     typealias Output = BankOutput
+    typealias Dependencies = HasDispatchable & HasNameDataProtocol
     
     //MARK: Properties
-    private let dispatcher: Dispatcher
+    private let dispatcher: Dispatchable
     private let nameList: [String]
     
     private let numberRelay: BehaviorRelay<Int>
@@ -41,11 +42,15 @@ class BankViewModel: ViewModelType {
     }
     
     //MARK: Init
-    init(with dispatcher: Dispatcher, nameList list: [String]) {
+    init(with dispatcher: Dispatchable, nameList list: NameDataProtocol) {
         self.dispatcher = dispatcher
-        self.nameList = list
+        self.nameList = list.names
         self.numberRelay = BehaviorRelay(value: 1)
         self.reloadTableViewRelay = PublishRelay()
+    }
+    
+    convenience init(with dependencies: Dependencies) {
+        self.init(with: dependencies.dispatcher, nameList: dependencies.nameData)
     }
     
     func transform(input: Input) -> Output {

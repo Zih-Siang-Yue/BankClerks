@@ -10,15 +10,16 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class Dispatcher {
+class Dispatcher: Dispatchable {
     var tasks: ThreadSafetyArray<Taskable>
     var takers: ThreadSafetyArray<TaskAcceptable>
-    private var disposeBag: DisposeBag = DisposeBag()
+    var disposeBag: DisposeBag
     
     //MARK: Init
     init() {
         self.tasks = ThreadSafetyArray()
         self.takers = ThreadSafetyArray()
+        self.disposeBag = DisposeBag()
     }
     
     public func setupTakers(_ takers: [TaskAcceptable]) {

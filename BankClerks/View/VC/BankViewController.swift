@@ -29,7 +29,7 @@ class BankViewController: UIViewController {
     }
         
     required init?(coder aDecoder: NSCoder) {
-        self.viewModel = BankViewModel(with: Dispatcher(), nameList: NameData.names)
+        self.viewModel = BankViewModel(with: DIC())
         super.init(coder: aDecoder)
     }
 
@@ -80,7 +80,7 @@ class BankViewController: UIViewController {
             .drive(onNext: { [weak self] (valid) in
                 guard let self = self else { return }
                 let textColor: UIColor = valid ? .white : .lightGray
-                let bgColor: UIColor = valid ? .systemPurple : .darkGray
+                let bgColor: UIColor = valid ? .orange : .darkGray
                 self.numberTakingBtn.setTitleColor(textColor, for: .normal)
                 self.numberTakingBtn.backgroundColor = bgColor
                 self.numberTakingBtn.isEnabled = valid

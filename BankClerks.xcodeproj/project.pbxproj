@@ -14,6 +14,10 @@
 		F00CD2AE25B139C500506ADC /* ThreadSafetyArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00CD2AD25B139C500506ADC /* ThreadSafetyArray.swift */; };
 		F00CD2B725B55BFC00506ADC /* Taskable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00CD2B625B55BFC00506ADC /* Taskable.swift */; };
 		F0500AAD25A17F4200C1B6C8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0500AAC25A17F4200C1B6C8 /* Task.swift */; };
+		F0500AAF25BC13E500C1B6C8 /* DICProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0500AAE25BC13E500C1B6C8 /* DICProtocol.swift */; };
+		F0500AB125BC140B00C1B6C8 /* DIC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0500AB025BC140B00C1B6C8 /* DIC.swift */; };
+		F0500AB325BC14CC00C1B6C8 /* Dispatchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0500AB225BC14CC00C1B6C8 /* Dispatchable.swift */; };
+		F0500AB525BC1AE100C1B6C8 /* NameDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0500AB425BC1AE100C1B6C8 /* NameDataProtocol.swift */; };
 		F094543625A55690004042AC /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F094543525A55690004042AC /* ViewModelType.swift */; };
 		F094544225A55807004042AC /* NameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F094544125A55807004042AC /* NameData.swift */; };
 		F094545325A5D94E004042AC /* UITableViewCell+Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = F094545225A5D94E004042AC /* UITableViewCell+Reactive.swift */; };
@@ -66,6 +70,10 @@
 		F00CD2AD25B139C500506ADC /* ThreadSafetyArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafetyArray.swift; sourceTree = "<group>"; };
 		F00CD2B625B55BFC00506ADC /* Taskable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taskable.swift; sourceTree = "<group>"; };
 		F0500AAC25A17F4200C1B6C8 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		F0500AAE25BC13E500C1B6C8 /* DICProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DICProtocol.swift; sourceTree = "<group>"; };
+		F0500AB025BC140B00C1B6C8 /* DIC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIC.swift; sourceTree = "<group>"; };
+		F0500AB225BC14CC00C1B6C8 /* Dispatchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatchable.swift; sourceTree = "<group>"; };
+		F0500AB425BC1AE100C1B6C8 /* NameDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameDataProtocol.swift; sourceTree = "<group>"; };
 		F094543525A55690004042AC /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		F094544125A55807004042AC /* NameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameData.swift; sourceTree = "<group>"; };
 		F094545225A5D94E004042AC /* UITableViewCell+Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Reactive.swift"; sourceTree = "<group>"; };
@@ -149,6 +157,7 @@
 			children = (
 				F0B9748A25A0482700D41F42 /* Dispatcher.swift */,
 				F00CD2AD25B139C500506ADC /* ThreadSafetyArray.swift */,
+				F0500AB025BC140B00C1B6C8 /* DIC.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -194,8 +203,11 @@
 			children = (
 				F094543525A55690004042AC /* ViewModelType.swift */,
 				F00CD28E25AE947E00506ADC /* TaskAcceptable.swift */,
-				F00CD2A825B1397100506ADC /* ThreadSafetyCollectable.swift */,
 				F00CD2B625B55BFC00506ADC /* Taskable.swift */,
+				F00CD2A825B1397100506ADC /* ThreadSafetyCollectable.swift */,
+				F0500AAE25BC13E500C1B6C8 /* DICProtocol.swift */,
+				F0500AB225BC14CC00C1B6C8 /* Dispatchable.swift */,
+				F0500AB425BC1AE100C1B6C8 /* NameDataProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -519,8 +531,10 @@
 			files = (
 				F0B9749325A058A100D41F42 /* UITableView+Register.swift in Sources */,
 				F0B9745F25A0466B00D41F42 /* BankViewController.swift in Sources */,
+				F0500AB525BC1AE100C1B6C8 /* NameDataProtocol.swift in Sources */,
 				F0B9749225A058A100D41F42 /* NSObject+NameDescribable.swift in Sources */,
 				F00CD2A925B1397100506ADC /* ThreadSafetyCollectable.swift in Sources */,
+				F0500AAF25BC13E500C1B6C8 /* DICProtocol.swift in Sources */,
 				F094544225A55807004042AC /* NameData.swift in Sources */,
 				F00CD2AE25B139C500506ADC /* ThreadSafetyArray.swift in Sources */,
 				F0B9745D25A0466B00D41F42 /* AppDelegate.swift in Sources */,
@@ -529,6 +543,8 @@
 				F0B9748D25A048A200D41F42 /* BankViewModel.swift in Sources */,
 				F0B9749A25A05A0900D41F42 /* ClerkTableViewCellVM.swift in Sources */,
 				F094543625A55690004042AC /* ViewModelType.swift in Sources */,
+				F0500AB325BC14CC00C1B6C8 /* Dispatchable.swift in Sources */,
+				F0500AB125BC140B00C1B6C8 /* DIC.swift in Sources */,
 				F0B9748B25A0482700D41F42 /* Dispatcher.swift in Sources */,
 				F0B974A525A0A8F100D41F42 /* ClerkTableViewCell.swift in Sources */,
 				F0B9749C25A05A2E00D41F42 /* Clerk.swift in Sources */,

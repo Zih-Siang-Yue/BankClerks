@@ -8,8 +8,8 @@
 
 import Foundation
 
-class NameData {
-    static let names: [String] = [
+class NameData: NameDataProtocol {
+    var names: [String] = [
         "Ariel", "Alexander",
         "Bob", "Barbara",
         "Catherine", "Charlotte",
