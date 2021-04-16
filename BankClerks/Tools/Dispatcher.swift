@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
 
 class Dispatcher: Dispatchable {
     var tasks: ThreadSafetyArray<Taskable>

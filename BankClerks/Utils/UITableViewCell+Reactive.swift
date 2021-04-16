@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 extension Reactive where Base: UITableViewCell {
     public var prepareForReuse: RxSwift.Observable<Void> {

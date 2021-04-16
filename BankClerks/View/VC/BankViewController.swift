@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
+@_exported import RxSwift
+@_exported import RxCocoa
 
 class BankViewController: UIViewController {
     

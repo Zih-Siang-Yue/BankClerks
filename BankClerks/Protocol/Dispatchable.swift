@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol Dispatchable {
     var tasks: ThreadSafetyArray<Taskable> { get set }

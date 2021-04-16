@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import RxCocoa
-import RxSwift
 
 class ThreadSafetyArray<T>: ThreadSafetyCollectable {
 
